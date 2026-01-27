@@ -12,7 +12,7 @@
 
 ## 📸 Náhled (Screenshots)
 
-![Hero Section](img/chasa-hero)
+![Hero Section](img/chasa-hero.png)
 *Úvodní sekce s moderním "Broken Grid" layoutem a fotografií chasy.*
 
 ---
