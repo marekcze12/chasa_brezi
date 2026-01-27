@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chasa Březí | Oficiální web</title>
+    <meta name="description" content="Oficiální stránky Chasy Březí. Informace o krojovaných hodech, fotogalerie a plánované akce.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lg-zoom.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Chasa <span class="accent">Březí</span></a>
+            <ul class="nav-links">
+                <li><a href="#o-nas">O nás</a></li>
+                <li><a href="#akce">Akce</a></li>
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#kontakt" class="btn-nav">Kontakt</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero">
+        <div class="overlay"></div> <div class="hero-content fade-in">
+            <p class="hero-subtitle">Jihomoravský kraj</p>
+            <h1 class="hero-title">Udržujeme tradice <br> <em>živé a veselé</em></h1>
+            <div class="hero-buttons">
+                <a href="#akce" class="btn btn-primary">Nejbližší akce</a>
+                <a href="#galerie" class="btn btn-outline">Prohlédnout fotky</a>
+            </div>
+        </div>
+        <a href="#odpocet" class="scroll-down">
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
+    </header>
+
+    <section id="odpocet" class="countdown-section">
+        <div class="container">
+            <h2 class="section-title text-center">Do hodů zbývá</h2>
+            <div id="timer" class="timer-grid fade-in">
+                <div class="time-box"><span id="days">00</span><span class="label">Dní</span></div>
+                <div class="time-box"><span id="hours">00</span><span class="label">Hodin</span></div>
+                <div class="time-box"><span id="minutes">00</span><span class="label">Minut</span></div>
+                <div class="time-box"><span id="seconds">00</span><span class="label">Sekund</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="o-nas" class="section bg-light">
+        <div class="container split-layout">
+            <div class="text-content fade-in">
+                <h2 class="section-title">O Chase Březí</h2>
+                <p class="lead">Jsme parta mladých lidí, které spojuje láska k vínu, zpěvu a kroji.</p>
+                <p>Naším hlavním posláním je organizace tradičních Krojovaných hodů, které se v naší obci konají každý rok na svatého Václava. Kromě toho pořádáme košt vín, zarážení hory a účastníme se hodů v okolních vesnicích.</p>
+                <div class="stats-row">
+                    <div class="stat"><strong>30+</strong> <br> Členů</div>
+                    <div class="stat"><strong>100</strong> <br> Let tradice</div>
+                </div>
+            </div>
+            <div class="image-content fade-in delay">
+                <img src="img/chasa1.png" alt="Skupinová fotka Chasy Březí" class="rounded-img shadow-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="akce" class="section">
+        <div class="container">
+            <h2 class="section-title text-center">Co nás čeká?</h2>
+            <div class="events-grid">
+                
+                <article class="event-card fade-in">
+                    <div class="date-badge">
+                        <span class="day">15</span>
+                        <span class="month">KVĚ</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Místní výstava vín</h3>
+                        <p class="event-meta"><i class="fa-regular fa-clock"></i> 14:00 • Kulturní dům</p>
+                        <p>Přijďte ochutnat ty nejlepší vzorky od místních vinařů. Cimbálová muzika zajištěna.</p>
+                    </div>
+                </article>
+
+                <article class="event-card fade-in delay">
+                    <div class="date-badge highlight"> <span class="day">25</span>
+                        <span class="month">ZÁŘ</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Tradiční krojované hody</h3>
+                        <p class="event-meta"><i class="fa-regular fa-clock"></i> 13:00 • Náves</p>
+                        <p>Vrchol naší sezóny. Průvod obcí, zavádění pod májou a večerní zábava.</p>
+                    </div>
+                </article>
+
+                 <article class="event-card fade-in delay-2">
+                    <div class="date-badge">
+                        <span class="day">11</span>
+                        <span class="month">LIS</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Svatomartinské husy</h3>
+                        <p class="event-meta"><i class="fa-regular fa-clock"></i> 18:00 • Sokolovna</p>
+                        <p>Tradiční posezení u mladého vína a dobrého jídla.</p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="galerie" class="section bg-dark text-white">
+        <div class="container">
+            <h2 class="section-title text-center text-white">Střípky z minulých let</h2>
+            <p class="text-center text-muted mb-5">Klikni na fotku pro zvětšení</p>
+            
+            <div id="lightgallery" class="gallery-grid">
+                <a href="img/chasa2.png" class="gallery-item fade-in">
+                    <img src="img/chasa2.png" alt="Veselé Velikonoce Vám přeje chasa Březí">
+                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                </a>
+                <a href="img/chasa3.png" class="gallery-item fade-in">
+                    <img src="img/chasa3.png" alt="Děvčata si vybírají, chlapci se schovávají. Tak vypadá odpoledne před hodovou zábavou.">
+                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                </a>
+                <a href="img/chasa4.png" class="gallery-item fade-in">
+                    <img src="img/chasa4.png" alt="Jánské hody 2022">
+                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                </a>
+                <a href="img/chasa5.png" class="gallery-item fade-in">
+                    <img src="img/chasa5.png" alt="Ten pohled, když zjistíš, že ve sklepě ještě nedošlo víno.">
+                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                </a>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="https://www.instagram.com/chasabrezi/" target="_blank" class="btn btn-outline-white">Více na Instagramu</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="kontakt" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h3>Chasa Březí</h3>
+                <p>Spolek pro udržování lidových tradic.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/chasabrezi" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/chasabrezi/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h4>Kontakt na stárky</h4>
+                <p><i class="fa-solid fa-phone"></i> +420 123 456 789 (Hlavní stárek)</p>
+                <p><i class="fa-solid fa-envelope"></i> info@chasabrezi.cz</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Chasa Březí | Developed by <a href="https://marekmanek.cz">Marek Maněk</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/zoom/lg-zoom.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

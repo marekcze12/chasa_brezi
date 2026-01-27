@@ -1,0 +1,215 @@
+/* --- 1. Proměnné a Reset (Design System) --- */
+:root {
+    /* Barvy inspirované krojem a vínem */
+    --primary: #8B1E3F;       /* Sytá vínová */
+    --primary-hover: #6b1630;
+    --secondary: #1A1A2E;     /* Tmavě modrá (skoro černá) */
+    --accent: #D4AF37;        /* Zlatá (pro detaily) */
+    
+    --text-dark: #1a1a1a;
+    --text-light: #f4f4f4;
+    --text-muted: #666;
+    
+    --bg-light: #f9f9f9;
+    --bg-white: #ffffff;
+    
+    /* Fonty */
+    --font-heading: 'Playfair Display', serif; /* Patkové = Tradice */
+    --font-body: 'Inter', sans-serif;          /* Bezpatkové = Čitelnost */
+    
+    --radius: 8px;
+    --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--bg-white);
+}
+
+/* --- 2. Typografie --- */
+h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1.2; }
+h1 { font-size: 3.5rem; margin-bottom: 20px; color: var(--text-light); }
+h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--secondary); }
+h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+.section-title {
+    text-align: left;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+}
+/* Ozdobná čára pod nadpisy */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary);
+}
+.text-center { text-align: center; }
+.text-center.section-title::after { left: 50%; transform: translateX(-50%); }
+
+/* --- 3. Komponenty --- */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.btn { display: inline-block; padding: 12px 30px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+
+.btn-primary { background-color: var(--primary); color: white; border: 2px solid var(--primary); }
+.btn-primary:hover { background-color: var(--primary-hover); border-color: var(--primary-hover); transform: translateY(-2px); }
+
+.btn-outline { background: transparent; color: white; border: 2px solid white; margin-left: 10px; }
+.btn-outline:hover { background: white; color: var(--secondary); }
+
+/* --- 4. Navigace --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 15px 0;
+    transition: 0.3s;
+    background: rgba(26, 26, 46, 0.95); /* Tmavá poloprůhledná */
+    backdrop-filter: blur(10px);
+}
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: var(--font-heading); font-size: 1.5rem; color: white; text-decoration: none; font-weight: 700; }
+.accent { color: var(--primary); } /* Červené "Březí" v logu */
+
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
+.nav-links a:hover { color: white; color: var(--primary); }
+.btn-nav { border: 1px solid var(--primary); padding: 8px 20px; border-radius: 20px; color: var(--primary) !important; }
+.btn-nav:hover { background: var(--primary); color: white !important; }
+
+/* Mobilní menu ikona */
+.hamburger { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+/* --- 5. Hero Sekce --- */
+.hero {
+    height: 100vh;
+    background: url('img/hero-bg.jpg') no-repeat center center/cover; /* Tady musíš mít tu fotku! */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    color: white;
+}
+.overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+}
+.hero-content { position: relative; z-index: 2; max-width: 800px; padding: 20px; }
+.hero-subtitle { text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem; margin-bottom: 10px; color: rgba(255,255,255,0.8); }
+.hero em { font-family: var(--font-heading); font-style: italic; color: var(--primary); }
+
+.scroll-down {
+    position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+    color: white; font-size: 2rem; animation: bounce 2s infinite;
+}
+
+/* --- 6. Odpočet (Countdown) --- */
+.countdown-section { background: var(--secondary); color: white; padding: 60px 0; margin-top: -5px; }
+.timer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 600px; margin: 0 auto; text-align: center; }
+.time-box { background: rgba(255,255,255,0.1); padding: 20px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.1); }
+.time-box span { display: block; }
+.time-box span:first-child { font-size: 2.5rem; font-weight: 700; font-family: var(--font-heading); color: var(--primary); } /* Čísla vínová */
+.label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; opacity: 0.7; }
+.countdown-section .section-title {
+    color: white;
+}
+
+/* --- 7. O Nás --- */
+.section { padding: 100px 0; }
+.bg-light { background-color: var(--bg-light); }
+.split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.lead { font-size: 1.2rem; color: var(--secondary); margin-bottom: 20px; font-weight: 500; }
+.stats-row { display: flex; gap: 40px; margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; }
+.stat strong { font-size: 2rem; color: var(--primary); font-family: var(--font-heading); }
+
+.rounded-img { width: 100%; border-radius: var(--radius); object-fit: cover; }
+.shadow-img { box-shadow: 20px 20px 0px rgba(139, 30, 63, 0.1); } /* Jemný vínový stín */
+
+/* --- 8. Akce (Karty) --- */
+.event-details h3 {
+    padding-right: 70px; /* Udělá místo pro datum vpravo nahoře */
+}
+.events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.event-card {
+    background: white; border-radius: var(--radius); overflow: hidden;
+    box-shadow: var(--shadow); position: relative; padding: 30px;
+    border-left: 4px solid var(--primary); /* Vínový proužek vlevo */
+    transition: transform 0.3s;
+}
+.event-card:hover { transform: translateY(-5px); }
+.date-badge {
+    position: absolute; top: 20px; right: 20px; text-align: center;
+    background: #f4f4f4; padding: 10px; border-radius: 8px; min-width: 60px;
+}
+.date-badge.highlight {
+    background: var(--primary);
+    color: white;
+    /* Ujisti se, že nemá jiné marginy/paddingy než základní .date-badge */
+}
+.date-badge .day { display: block; font-size: 1.5rem; font-weight: 700; line-height: 1; }
+.date-badge .month { font-size: 0.7rem; text-transform: uppercase; font-weight: 600; }
+
+.event-meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+
+/* --- 9. Galerie --- */
+.bg-dark { background-color: var(--secondary); }
+.text-white { color: white !important; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+.gallery-item {
+    position: relative; overflow: hidden; border-radius: var(--radius); aspect-ratio: 1/1; display: block;
+}
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.gallery-item:hover img { transform: scale(1.1); }
+
+/* Efekt lupy po najetí */
+.gallery-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(139, 30, 63, 0.6); /* Vínová průhledná */
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0; transition: 0.3s;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-overlay i { color: white; font-size: 2rem; }
+
+/* --- 10. Footer --- */
+.footer { background: #111; color: #888; padding: 60px 0 20px; }
+.footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer h3, .footer h4 { color: white; margin-bottom: 20px; }
+.social-icons a { color: white; font-size: 1.2rem; margin-right: 15px; transition: 0.3s; }
+.social-icons a:hover { color: var(--primary); }
+.copyright { text-align: center; border-top: 1px solid #222; padding-top: 20px; font-size: 0.85rem; }
+.copyright a { color: var(--primary); text-decoration: none; }
+
+/* --- 11. Animace --- */
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);} 40% {transform: translateX(-50%) translateY(-10px);} 60% {transform: translateX(-50%) translateY(-5px);} }
+.fade-in { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.delay { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+
+/* --- 12. Mobilní zobrazení --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .nav-links {
+        position: absolute; right: 0; top: 70px; background: var(--secondary);
+        flex-direction: column; width: 100%; text-align: center; gap: 0;
+        max-height: 0; overflow: hidden; transition: 0.3s;
+    }
+    .nav-links.active { max-height: 300px; padding: 20px 0; }
+    .nav-links li { padding: 15px 0; }
+    .hamburger { display: block; }
+    .split-layout, .footer-grid { grid-template-columns: 1fr; }
+    .timer-grid { gap: 10px; }
+    .time-box span:first-child { font-size: 1.5rem; }
+}
