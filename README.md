@@ -62,7 +62,7 @@ Tento projekt pro mě byl příležitostí zdokonalit se v **UI/UX designu** a p
 
 **Marek Maněk** - Junior Full Stack Developer
 * Portfolio: [marekmanek.cz](https://marekmanek.cz)
-* LinkedIn: (https://www.linkedin.com/in/marek-maněk-5a9947339/)
+* LinkedIn: [Marek Maněk](https://www.linkedin.com/in/marek-maněk-5a9947339/)
 * Email: marek.manek.dj@seznam.cz
 
 ---
