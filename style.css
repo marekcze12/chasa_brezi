@@ -137,15 +137,13 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 .shadow-img { box-shadow: 20px 20px 0px rgba(139, 30, 63, 0.1); } /* Jemný vínový stín */
 
 /* --- 8. Akce (Karty) --- */
-.event-details h3 {
-    padding-right: 70px; /* Udělá místo pro datum vpravo nahoře */
-}
 .events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 .event-card {
     background: white; border-radius: var(--radius); overflow: hidden;
     box-shadow: var(--shadow); position: relative; padding: 30px;
     border-left: 4px solid var(--primary); /* Vínový proužek vlevo */
     transition: transform 0.3s;
+    padding: 30px 100px 30px 30px;
 }
 .event-card:hover { transform: translateY(-5px); }
 .date-badge {
@@ -162,6 +160,14 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 
 .event-meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
 
+.date-badge .year { 
+    display: block; 
+    font-size: 0.7rem; 
+    font-weight: 700; 
+    margin-top: 3px; 
+    opacity: 0.7; /* Trochu zprůhledníme, aby hlavní pozornost zůstala na dnu */
+}
+
 /* --- 9. Galerie --- */
 .bg-dark { background-color: var(--secondary); }
 .text-white { color: white !important; }
@@ -171,6 +177,18 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
 .gallery-item:hover img { transform: scale(1.1); }
+
+/* Bílé tlačítko pro tmavé pozadí */
+.btn-outline-white {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    margin-left: 0;
+}
+.btn-outline-white:hover {
+    background: white;
+    color: var(--secondary);
+}
 
 /* Efekt lupy po najetí */
 .gallery-overlay {
@@ -198,18 +216,85 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 .delay { transition-delay: 0.2s; }
 .delay-2 { transition-delay: 0.4s; }
 
-/* --- 12. Mobilní zobrazení --- */
+/* =========================================
+   12. RESPONZIVNÍ DESIGN (Mobily a Tablety)
+   ========================================= */
+
+/* --- TABLETY A VĚTŠÍ MOBILY (do 768px) --- */
 @media (max-width: 768px) {
+    /* 1. Typografie (Zmenšení nadpisů, aby netekly ze stránky) */
     h1 { font-size: 2.5rem; }
-    .nav-links {
-        position: absolute; right: 0; top: 70px; background: var(--secondary);
-        flex-direction: column; width: 100%; text-align: center; gap: 0;
-        max-height: 0; overflow: hidden; transition: 0.3s;
-    }
-    .nav-links.active { max-height: 300px; padding: 20px 0; }
-    .nav-links li { padding: 15px 0; }
+    h2 { font-size: 2rem; }
+    .section { padding: 60px 0; } /* Menší mezery mezi sekcemi */
+
+    /* 2. Navigace (Aktivace Hamburger menu) */
     .hamburger { display: block; }
-    .split-layout, .footer-grid { grid-template-columns: 1fr; }
+    .nav-links {
+        position: absolute; 
+        right: 0; 
+        top: 60px; /* Podle výšky tvého menu */
+        background: rgba(26, 26, 46, 0.98);
+        flex-direction: column; 
+        width: 100%; 
+        text-align: center; 
+        gap: 0;
+        max-height: 0; 
+        overflow: hidden; 
+        transition: max-height 0.3s ease-in-out;
+    }
+    .nav-links.active { 
+        max-height: 400px; 
+        padding: 20px 0; 
+        box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+    }
+    .nav-links li { padding: 15px 0; }
+    .btn-nav { border: none; padding: 0; } /* Na mobilu zrušíme obrys u tlačítka Kontakt */
+
+    /* 3. Rozvržení - Vše do jednoho sloupce pod sebe */
+    .split-layout, 
+    .footer-grid { 
+        grid-template-columns: 1fr; 
+        gap: 40px; 
+    }
+    .footer-grid { text-align: center; }
+
+    /* 4. OPRAVA ODPOČTU - Ze 4 sloupců uděláme mřížku 2x2 */
+    .timer-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px; 
+    }
+    .time-box { padding: 15px 10px; }
+    .time-box span:first-child { font-size: 2rem; } /* Zmenšení čísel */
+
+    /* 5. Úprava fotky s růžovým rámečkem (aby netekla z mobilu doprava) */
+    .image-content { margin-right: 0; }
+    .image-content::before {
+        top: 10px; 
+        right: -10px; /* Zmenšíme odsazení rámečku */
+    }
+}
+
+/* --- MALÉ TELEFONY (do 480px - např. iPhone SE) --- */
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    
+    /* Tlačítka v úvodu dáme pod sebe na plnou šířku */
+    .hero-buttons { 
+        display: flex; 
+        flex-direction: column; 
+        gap: 15px; 
+        padding: 0 20px;
+    }
+    .btn-outline { margin-left: 0; } /* Zrušení mezery, když jsou pod sebou */
+
+    /* Ještě větší smrsknutí odpočtu */
     .timer-grid { gap: 10px; }
-    .time-box span:first-child { font-size: 1.5rem; }
+    .time-box span:first-child { font-size: 1.6rem; }
+
+    /* Statistika pod sebou (30+ Členů, 100 Let tradice) */
+    .stats-row { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 20px; 
+    }
 }
