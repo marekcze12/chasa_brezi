@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Odpočet do Hodů (Countdown)
     // Nastav si datum příštích hodů! (formát: Měsíc Den, Rok Čas)
-    const hodyDate = new Date("Sep 26, 2026 14:00:00").getTime();
+    const hodyDate = new Date("Sep 25, 2026 14:00:00").getTime();
 
     const countdown = setInterval(() => {
         const now = new Date().getTime();
@@ -71,6 +71,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, { threshold: 0.1 });
+
+    // 5. Zšednutí proběhlých akcí
+    const eventCards = document.querySelectorAll('.event-card');
+    const currentDate = new Date();
+
+    // Pomocný slovník pro převod českých zkratek měsíců na čísla (0 = Leden, 11 = Prosinec)
+    const monthMap = {
+        'LED': 0, 'ÚNO': 1, 'BŘE': 2, 'DUB': 3, 'KVĚ': 4, 'ČER': 5,
+        'ČVC': 6, 'SRP': 7, 'ZÁŘ': 8, 'ŘÍJ': 9, 'LIS': 10, 'PRO': 11
+    };
+
+    eventCards.forEach(card => {
+        const dayStr = card.querySelector('.day').innerText;
+        // Převedeme na velká písmena pro jistotu
+        const monthStr = card.querySelector('.month').innerText.trim().toUpperCase(); 
+        const yearStr = card.querySelector('.year').innerText;
+
+        const eventMonth = monthMap[monthStr];
+        // Nastavíme datum akce na konec dne (23:59), aby karta nezšedla hned ráno v den akce
+        const eventDate = new Date(yearStr, eventMonth, dayStr, 23, 59, 59);
+
+        if (currentDate > eventDate) {
+            card.classList.add('past-event');
+        }
+    });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 });
