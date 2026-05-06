@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Odpočet do Hodů (Countdown)
     // Nastav si datum příštích hodů! (formát: Měsíc Den, Rok Čas)
-    const hodyDate = new Date("Sep 25, 2026 14:00:00").getTime();
+    const hodyDate = new Date("June 19, 2026 15:00:00").getTime();
 
     const countdown = setInterval(() => {
         const now = new Date().getTime();
